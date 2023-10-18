@@ -1,10 +1,83 @@
+:not(select, hbox) > scrollbar,
+.hidevscroll-scrollbar,
+.hidehscroll-scrollbar {
+    appearance: none !important;
+    position: relative;
+    background-color: transparent;
+    background-image: none;
+    z-index: 2147483647;
+    padding: 0px;}
+
+menupopup { padding: 0px 0px 0px 0px !important;
+
+margin: -19px -14px 0 !important;}
+
+
+
+/* inactive tabs width */
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+    max-width: 4em !important;
+    min-width: 4em !important;}
+
+/* active tab width */
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+    max-width: 14em !important;
+    min-width: 14em !important;}
+
+#urlbar-input::-moz-selection {
+      background-color: #1d9bf0 !important;
+      color: #ffffff !important;}
+
+
+
+.tabbrowser-tab :-moz-window-inactive > .tab-label {display: none;} 
+
+
+
+#unified-extensions-button{ display: none }
+
+#tracking-protection-icon-container {
+    display: none!important;}
+
+/*Remove Navigation Toolbox Top Line*/
+#nav-bar{ box-shadow: none !important }
+
+#PanelUI-button{ display:block }
+
+#alltabs-button {display: none !important;}
+
+#nav-bar-overflow-button {
+display: none !important;}
+
+#tracking-protection-icon-animatable-image {
+  display:none !important;}
+ 
+#tracking-protection-icon[state="loaded-tracking-content"] {
+ display:none !important;}
+
+image.autoplay-media-icon {
+ display: none !important;}
+
+#identity-icon {
+  display:none !important;}
+
+
+
+/*Faviconize Tabs*/
+.tabbrowser-tab:not([selected]) label {display: none !important;}
+.tabbrowser-tab:not([pinned]) {
+max-width: 50px !important;
+min-width: 40px !important;}
+.close-icon {color: #ffffff !important;}
+
+
+
 /* Adds icons to main menu items which were removed in Proton */
 #appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
 #appMenu-protonMainView > .panel-subview-body > toolbarbutton > image{
   fill: currentColor;
   -moz-context-properties: fill;
-  margin-inline: 0 8px !important;
-}
+  margin-inline: 0 8px !important;}
 #appMenu-new-tab-button2{ list-style-image: url("chrome://browser/skin/new-tab.svg") }
 #appMenu-new-window-button2{ list-style-image: url("chrome://browser/skin/window.svg") }
 #appMenu-new-private-window-button2{ list-style-image: url("chrome://browser/skin/privateBrowsing.svg") }
@@ -24,6 +97,12 @@
 /* Sound Tab - Hide Label */
   .tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]){
     display: none !important;}
+
+.tab-throbber[busy] { 
+  list-style-image: url("Spinner.gif") !important;}
+
+.tab-throbber[progress] {
+list-style-image: url("Spinner.gif") !important;}
 
 #TabsToolbar 
 { margin-top: 1px !important;
@@ -47,16 +126,6 @@
 
 
 
-#context-back image,
-#context-forward image,
-#context-reload image,
-#context-stop image,
-#context-bookmarkpage image,
-#context-navigation,
-#context-sep-navigation {
-  display:none !important;
-}
-
 :root{ --lwt-toolbarbutton-icon-fill: #ffffff !important;
 --toolbarbutton-icon-fill: #ffffff !important;
 --lwt-toolbarbutton-icon-fill-attention: #80e2ff !important; }
@@ -78,23 +147,28 @@
 }
 
 menupopup > menuitem, menupopup > menu {
-    padding-block: 0.3em !important;
-}
+    padding-block: 0.3em !important;}
 
 /* show audio icon as a separate icon in compact mode */
 .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
-    grid-template-areas: "a s";
-}
+    grid-template-areas: "a s";}
 .tab-icon-overlay:is([muted],[soundplaying],[activemedia-blocked]){ grid-area: s; }
 .tab-icon-overlay,.tab-icon-image{ opacity: 1 !important; }
 .tab-icon-overlay {
-    padding: 0 !important;
-}
+    padding: 0 !important;}
 .tab-icon-overlay:hover {
-    background: none !important;
-}
+    background: none !important;}
 
 
+/*Remove Navigation Context Menu Icons*/
+#context-back image,
+#context-forward image,
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation,
+#context-sep-navigation {
+  display:none !important;}
 
 
 
@@ -106,56 +180,15 @@ menupopup > menuitem, menupopup > menu {
    background-color: #414140 !important;}
 
 .titlebar-spacer[type="pre-tabs"]{
-  display: none !important;
-}
+  display: none !important;}
 #navigator-toolbox { --tabs-border-color: transparent !important; }
 
 #urlbar-container {
 margin-top: -3px !important;}
 
-#PanelUI-button{ display:block }
-
-
-#alltabs-button {display: none !important;}
-
-#nav-bar-overflow-button {
-display: none !important;}
-
 #urlbar {
 margin-top: 2px !important;
 length: 33px !important;}
-
-
-
-
-
-/* Firefox Context Menu */
-#context-navigation,
-#context-sep-navigation,
-#context-stop,
-#context-back,
-#context-forward,
-#context-reload,
-#context-bookmarkpage {
-diaplay: none !important;}
-
-
-
-
-
-
-#tracking-protection-icon-container {
-    display: none!important;}
-
-/*Faviconize Tabs*/
-.tab-label-container { display: none;}
-.tabbrowser-tab:not([pinned]) {
-max-width: 50px !important;
-min-width: 40px !important;}
-.close-icon {color: #ffffff !important;}
-
-/* Hide The Sidebar Scrollbar*/
-.hidevscroll-scrollbar {display:none !important;}
 
 
 
@@ -174,27 +207,16 @@ list-style-image: url("firefox.png") !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {
     margin-top: 4px !important;}
 
-#identity-icon {
-  display:none !important;}
 
- 
-/* ..... Tracking icon ..... */
-#tracking-protection-icon-animatable-image {
-  display:none !important;}
- 
-#tracking-protection-icon[state="loaded-tracking-content"] {
- display:none !important;}
 
-image.autoplay-media-icon {
- display: none !important;}
+
 
 /* Remove empty space before first tab
 Delete this rule if you need a space to drag the window*/
 #TabsToolbar .titlebar-placeholder[type="pre-tabs"]{
 display: none !important;}
 
-/* Remove border between tabs
-Delete this rule if you want separators between background tabs */
+/* Remove border between tabs*/
 .tabbrowser-tab::after, .tabbrowser-tab::before {
 border-left: none !important;} 
 
@@ -323,7 +345,7 @@ border: none !important;}
 #PanelUI-button,
 #customization-panel-container,
 #customization-panelWrapper .panel-arrow { 
-  -moz-box-ordinal-group: 0 !important;
+  order: -1;
   margin-right: -2px !important;
   margin-left: 10px !important;}
 
@@ -352,7 +374,6 @@ ar-button,
 :root {--chrome-content-separator-color: none !important;}
 
 
-.tab-label-container {display: none !important;}
 .tab-content {padding: 6px !important;}
 
 
