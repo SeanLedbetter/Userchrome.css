@@ -1,3 +1,47 @@
+
+
+:root {
+  --navbar-width: 640px; 
+  --navbar-width-focused: 640px; 
+  --url-max-width-not-focused: 260px;}
+
+/* prevent urlbar from pushing the icons */
+#urlbar-container {
+  max-width: var(--url-max-width-not-focused);
+  min-width: 440px !important;}
+
+/* rise the url bar to top and margin from right to shrink its width */
+#nav-bar {
+  margin: -44px calc(100vw - var(--navbar-width)) 0px 0px !important;}
+
+/* give empty space in tabs' left for placing navbar */
+#TabsToolbar {
+  -moz-padding-start: var(--navbar-width) !important;}
+
+/* make navbar longer when focused */
+#nav-bar[urlbar-exceeds-toolbar-bounds="true"] {
+  margin: -44px calc(100vw - var(--navbar-width-focused)) 0px 0px !important;}
+
+/* move tabs bar even more left when focused */
+#titlebar:has(+ #nav-bar[urlbar-exceeds-toolbar-bounds="true"]) #TabsToolbar {
+  -moz-padding-start: var(--navbar-width-focused) !important;}
+
+/* make url field grow to url container when focused */
+#nav-bar[urlbar-exceeds-toolbar-bounds="true"] #urlbar-container{
+  max-width: 100vw !important;}
+
+
+/* Hide the mute/unmute button */
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
+    display: none !important;}
+
+/* Keep site icon visible on hover */
+.tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay), 
+     /* for site icon with Compact density */
+:root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    opacity: 1 !important; /* overrides full transparency with full opacity */}
+
+/* Hide Bookmarks Scrollbar */
 :not(select, hbox) > scrollbar,
 .hidevscroll-scrollbar,
 .hidehscroll-scrollbar {
@@ -8,157 +52,50 @@
     z-index: 2147483647;
     padding: 0px;}
 
-menupopup { padding: 0px 0px 0px 0px !important;
 
-margin: -19px -14px 0 !important;}
+/*Remove Navigation Toolbox Top Line*/
+#nav-bar { border-top: 0px !important }
 
 
 
-/* inactive tabs width */
+/* Inactive Tabs Width */
 .tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
     max-width: 4em !important;
     min-width: 4em !important;}
 
-/* active tab width */
+/* Active Tab Width - Fixes Close Button Problem */
 .tabbrowser-tab[selected][fadein]:not([pinned]) {
     max-width: 14em !important;
     min-width: 14em !important;}
 
-#urlbar-input::-moz-selection {
-      background-color: #1d9bf0 !important;
-      color: #ffffff !important;}
-
-
+.tabbrowser-tab [selected="true"] {
+   background-color: #2C2C2C !important;}
 
 .tabbrowser-tab :-moz-window-inactive > .tab-label {display: none;} 
 
 
 
-#unified-extensions-button{ display: none }
+/* Removes Space Before Tabs */
+.titlebar-spacer[type="pre-tabs"]{
+  display: none !important;}
+#navigator-toolbox { --tabs-border-color: transparent !important; }
 
-#tracking-protection-icon-container {
-    display: none!important;}
+/* More Bottom Margin For Nav Bar */
+#nav-bar {margin-bottom: 5px !important;}
 
-/*Remove Navigation Toolbox Top Line*/
-#nav-bar{ box-shadow: none !important }
+/* Input Text Run-On */
+#urlbar-input-container {
+  width: 420px !important;
+  margin-left: -2px !important;}
 
-#PanelUI-button{ display:block }
+/* Permissions Switch Icon Url Bar */
+#identity-permission-box {
+  display: none !important;}
 
-#alltabs-button {display: none !important;}
+/* Url Bookmarks Star Button */
+#star-button-box {display: none !important;}
 
-#nav-bar-overflow-button {
-display: none !important;}
-
-#tracking-protection-icon-animatable-image {
-  display:none !important;}
- 
-#tracking-protection-icon[state="loaded-tracking-content"] {
- display:none !important;}
-
-image.autoplay-media-icon {
- display: none !important;}
-
-#identity-icon {
-  display:none !important;}
-
-
-
-/*Faviconize Tabs*/
-.tabbrowser-tab:not([selected]) label {display: none !important;}
-.tabbrowser-tab:not([pinned]) {
-max-width: 50px !important;
-min-width: 40px !important;}
-.close-icon {color: #ffffff !important;}
-
-
-
-/* Adds icons to main menu items which were removed in Proton */
-#appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
-#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image{
-  fill: currentColor;
-  -moz-context-properties: fill;
-  margin-inline: 0 8px !important;}
-#appMenu-new-tab-button2{ list-style-image: url("chrome://browser/skin/new-tab.svg") }
-#appMenu-new-window-button2{ list-style-image: url("chrome://browser/skin/window.svg") }
-#appMenu-new-private-window-button2{ list-style-image: url("chrome://browser/skin/privateBrowsing.svg") }
-#appMenu-bookmarks-button{ list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg") }
-#appMenu-history-button{ list-style-image: url("chrome://browser/skin/history.svg") }
-#appMenu-downloads-button{ list-style-image: url("chrome://browser/skin/downloads/downloads.svg") }
-#appMenu-passwords-button{ list-style-image: url("chrome://browser/skin/login.svg") }
-#appMenu-extensions-themes-button{ list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") }
-#appMenu-print-button2{ list-style-image: url("chrome://global/skin/icons/print.svg") }
-#appMenu-save-file-button2{ list-style-image: url("chrome://browser/skin/save.svg") }
-#appMenu-find-button2{ list-style-image: url("chrome://global/skin/icons/search-glass.svg") }
-#appMenu-settings-button{ list-style-image: url("chrome://global/skin/icons/settings.svg") }
-#appMenu-more-button2{ list-style-image: url("chrome://browser/skin/developer.svg") }
-#appMenu-help-button2{ list-style-image: url(chrome://global/skin/icons/info.svg) }
-#appMenu-quit-button2{ list-style-image: url(chrome://browser/skin/quit.svg) }
-
-/* Sound Tab - Hide Label */
-  .tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]){
-    display: none !important;}
-
-.tab-throbber[busy] { 
-  list-style-image: url("Spinner.gif") !important;}
-
-.tab-throbber[progress] {
-list-style-image: url("Spinner.gif") !important;}
-
-#TabsToolbar 
-{ margin-top: 1px !important;
-  margin-bottom: 0px !important;
-  margin-left: 28vw !important;}
-
-/* Nav bar*/
-#nav-bar 
-{ background: transparent !important;
-  margin-top: -33px !important;
-  margin-bottom: 4px !important;
-  margin-right: 72vw !important;
-  height: 35px !important;
-  padding-top: 0px !important;
-  font-size:12px !important;
-  min-width: 150px !important;}
-
-
-
-
-
-
-
-:root{ --lwt-toolbarbutton-icon-fill: #ffffff !important;
---toolbarbutton-icon-fill: #ffffff !important;
---lwt-toolbarbutton-icon-fill-attention: #80e2ff !important; }
-
-.titlebar-button {
-    margin: 5px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    border-radius: 5px !important;}
-
-.titlebar-close:hover {
-    background-color: black !important;}
-
-#appMenu-fxa-separator {
-  border-image: unset !important;}
-
-:root {
-    --arrowpanel-menuitem-padding: 5px !important;
-}
-
-menupopup > menuitem, menupopup > menu {
-    padding-block: 0.3em !important;}
-
-/* show audio icon as a separate icon in compact mode */
-.tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
-    grid-template-areas: "a s";}
-.tab-icon-overlay:is([muted],[soundplaying],[activemedia-blocked]){ grid-area: s; }
-.tab-icon-overlay,.tab-icon-image{ opacity: 1 !important; }
-.tab-icon-overlay {
-    padding: 0 !important;}
-.tab-icon-overlay:hover {
-    background: none !important;}
-
+-----------------------------------------------------------------------------------------------------------------------------------
 
 /*Remove Navigation Context Menu Icons*/
 #context-back image,
@@ -171,29 +108,38 @@ menupopup > menuitem, menupopup > menu {
   display:none !important;}
 
 
+/* Address Bar Buttons Removed */
+#urlbar-input-container{ margin-inline-start: 14px }
+#unified-extensions-button{ display: none }
+#nav-bar-overflow-button {
+display: none !important;}
+
+/* Top Bar Color */
+#toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox,#sidebar-box{
+  background-color: #262626 !important;}
+.titlebar-color{
+  background-color: #2C2C2C !important;}
+#urlbar-background {
+    background-color: #393939 !important;}
+/* Nav bar*/
+#nav-bar 
+{ background-color: #262626 !important;
+  color: #262626 !important;}
 
 
-#urlbar-container{ min-width: 50px !important;}
+/*Faviconize Tabs*/
+.tabbrowser-tab:not([selected]) label {display: none !important;}
+.tabbrowser-tab:not([pinned]) {
+max-width: 50px !important;
+min-width: 40px !important;}
+.close-icon {color: #ffffff !important;}
 
-
-.tabbrowser-tab [selected="true"] {
-   background-color: #414140 !important;}
-
-.titlebar-spacer[type="pre-tabs"]{
-  display: none !important;}
-#navigator-toolbox { --tabs-border-color: transparent !important; }
-
-#urlbar-container {
-margin-top: -3px !important;}
-
-#urlbar {
-margin-top: 2px !important;
-length: 33px !important;}
-
-
+/* Sound Tab - Hide Label */
+  .tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]){
+    display: none !important;}
 
 #PanelUI-menu-button {
-list-style-image: url("firefox.png") !important;}
+list-style-image: url("firefox2.png") !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {
     padding: 2px !important;}
 :root[uidensity="touch"] #PanelUI-menu-button > .toolbarbutton-badge-stack {
@@ -201,28 +147,23 @@ list-style-image: url("firefox.png") !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
     width: 24px !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {
-    margin-right: -3px !important;}
+    margin-right: -4px !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {
     margin-left: -8px !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {
-    margin-top: 4px !important;}
+    margin-top: 0px !important;}
 
+/* Move hamburger menu to the left */
+#PanelUI-button,
+#customization-panel-container,
+#customization-panelWrapper .panel-arrow { 
+  order: -1;
+  margin-right: -2px !important;
+  margin-left: 10px !important;}
 
+/*Hamburger Button Separator*/
+#PanelUI-button {border-image-slice: 0 !important;}
 
-
-
-/* Remove empty space before first tab
-Delete this rule if you need a space to drag the window*/
-#TabsToolbar .titlebar-placeholder[type="pre-tabs"]{
-display: none !important;}
-
-/* Remove border between tabs*/
-.tabbrowser-tab::after, .tabbrowser-tab::before {
-border-left: none !important;} 
-
-/* Border between background tabs */
-.tabbrowser-tab::after, .tabbrowser-tab::before {
-display: none !important;}
 
 /* Bookmarks Sidebar */
 #bookmarks-view,
@@ -238,18 +179,22 @@ background-color: #303030 !important;
 border: 1px !important;
 border-right: 0px !important;}
 
+/* Bookmark Sidebar Height */
+:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
+treechildren::-moz-tree-row {
+  margin-top: -1px !important;
+  min-height: 26px !important;
+  height: 26px !important;}
+
 #sidebar-header {
 display: none !important;
 padding-top: 4px !important;
 padding-bottom: 0px !important;
 background-color: #303030 !important;}
 
-
-
 #bookmarks-view {
 searchbar-textbox: 
 background-color: #303030 !important;}
-
 
 #sidebar-search-container {
 background-color: #303030 !important;
@@ -257,37 +202,11 @@ color: #4d4d4d !important;
 padding-left: 20px !important;
 padding-right: 20px !important;}
 
-
-
 #sidebar-search-container #search-box {
 -moz-appearance: none !important;
 background-color: #232323 !important;
 color: white !important;
 min-height: 32px !important;}
-
-
-
-
-#bookmarksMenuPopup, #bookmarksMenuPopup menupopup {
--moz-appearance: none !important;
-color: #e6e6e6 !important;
-background-color: #2b2b2b !important;}
-#bookmarksMenuPopup menu, #bookmarksMenuPopup menuitem {
--moz-appearance: none !important;
-color: #e6e6e6 !important;
-background-color: #2b2b2b !important;}
-#bookmarks-menu{
--moz-appearance: none !important;
-color: #e6e6e6 !important;
-background-color: #2b2b2b !important;}
-menupopup {
-color: #e6e6e6 !important;
-background: #2b2b2b !important;}
-:root {
-    --arrowpanel-background: #2b2b2b !important;
-    --arrowpanel-color: #e6e6e6 !important;
-    --panel-background: #2b2b2b !important;}
-
 
 /*Bookmarks Text Color*/
 treechildren::-moz-tree-cell-text(selected),
@@ -319,7 +238,7 @@ max-height: 0px !important;}
 .sidebar-placesTreechildren::-moz-tree-image(title, container){ 
 list-style-image: url('./dot2.png') !important;}
 
-/* Bookmarks Indentation */
+/* Bookmarks Indention */
 #bookmarks-view-children::-moz-tree-indentation {
 width: 0px !important;}-indentation {
 width: 0px !important;
@@ -329,8 +248,8 @@ padding-left: -5px !important;}
 list-style-image: none !important;
 margin-left: -8px !important;}
 
+/* Bookmarks Indention Folder Items */
 .sidebar-placesTreechildren::-moz-tree-indentation{ width: 2px !important; }
-
 
 /* Remove Sidebar border*/
 toolbarbutton#alltabs-button {
@@ -338,97 +257,131 @@ toolbarbutton#alltabs-button {
 #sidebar-splitter{
 border: none !important;}
 
-/* Remove Forward Button */
-#forward-button {display:none !important;}
-
-/* Move hamburger menu to the left */
-#PanelUI-button,
-#customization-panel-container,
-#customization-panelWrapper .panel-arrow { 
-  order: -1;
-  margin-right: -2px !important;
-  margin-left: 10px !important;}
-
-/*Hamburger Button Separator*/
-#PanelUI-button {border-image-slice: 0 !important;}
-
-/* URL Bar */
-#pageActionButton,
-#pocket-button-box,
-ar-button,
-.autocomplete-history-dropmarker,
-#identity-icon-labels
-{display: none !important;}
-
-
-/* Hide blue stripe on active tab */
-.tab-line {
-  display: none !important;}
-
-
-/*Read View Button*/
-#reader-mode-button, #pageActionButton {
-    display:none!important;}
-
 /* Remove Tab Bar Bottom Line */
 :root {--chrome-content-separator-color: none !important;}
 
+/*Read View Button*/
+#reader-mode-button, #pageActionButton {
+    display:none !important;}
 
-.tab-content {padding: 6px !important;}
+/* Remove Forward Button */
+#forward-button {display:none !important;}
+
+/* Something With Panel UI */
+:root{ --lwt-toolbarbutton-icon-fill: #ffffff !important;
+--toolbarbutton-icon-fill: #ffffff !important;
+--lwt-toolbarbutton-icon-fill-attention: #80e2ff !important; }
+.titlebar-button {
+    margin: 5px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 5px !important;}
+.titlebar-close:hover {
+    background-color: black !important;}
+#appMenu-fxa-separator {
+  border-image: unset !important;}
+:root {
+    --arrowpanel-menuitem-padding: 5px !important;}
+menupopup > menuitem, menupopup > menu {
+    padding-block: 0.3em !important;}
+
+/* Adds icons to main menu items which were removed in Proton */
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
+#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image,
+#appMenu-mainView > .panel-subview-body > .subviewbutton > .toolbarbutton-icon{
+  fill: currentColor;
+  -moz-context-properties: fill;
+  margin-inline: 0 8px !important;}
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{
+  display: flex;
+  content: "";
+  width: 16px;
+  height: 16px;}
+#appMenu-new-tab-button2{ list-style-image: url("chrome://browser/skin/new-tab.svg") }
+#appMenu-new-window-button2{ list-style-image: url("chrome://browser/skin/window.svg") }
+#appMenu-new-private-window-button2{ list-style-image: url("chrome://browser/skin/privateBrowsing.svg") }
+#appMenu-bookmarks-button{ list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg") }
+#appMenu-history-button{ list-style-image: url("chrome://browser/skin/history.svg") }
+#appMenu-downloads-button{ list-style-image: url("chrome://browser/skin/downloads/downloads.svg") }
+#appMenu-passwords-button{ list-style-image: url("chrome://browser/skin/login.svg") }
+#appMenu-extensions-themes-button{ list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") }
+#appMenu-print-button2{ list-style-image: url("chrome://global/skin/icons/print.svg") }
+#appMenu-save-file-button2{ list-style-image: url("chrome://browser/skin/save.svg") }
+#appMenu-find-button2{ list-style-image: url("chrome://global/skin/icons/search-glass.svg") }
+#appMenu-settings-button{ list-style-image: url("chrome://global/skin/icons/settings.svg") }
+#appMenu-more-button2{ list-style-image: url("chrome://global/skin/icons/developer.svg") }
+#appMenu-report-broken-site-button{ list-style-image: url("chrome://global/skin/icons/warning.svg") }
+#appMenu-help-button2{ list-style-image: url("chrome://global/skin/icons/info.svg") }
+#appMenu-quit-button2{ list-style-image: url("chrome://devtools/skin/images/search-clear.svg") }
+#appMenu-translate-button{ list-style-image: url("chrome://browser/skin/translations.svg") }
+#appMenu-zoom-controls::before{ background-image: url("chrome://browser/skin/fullscreen.svg") }
+/* Use account-button icon for signed in sync item */
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{ background-image: var(--avatar-image-url) }
+/* Add somewhat hacky separator to zoom controls so it looks consistent */
+#appMenu-protonMainView > .panel-subview-body::after,
+#appMenu-mainView > .panel-subview-body::after{
+  content: "";
+  display: flex;
+  border-bottom: 1px solid var(--panel-separator-color);
+  margin: var(--panel-separator-margin);}
+#appMenu-translate-button ~ *{
+  order: 2;}
 
 
-/* Show favicon for tabs without favicons */
-.tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
-display: inline !important;
-list-style-image: url('./dot.png') !important;}
-
-
-/* Remove back button circle */
-#back-button:not(:hover),
-#back-button:not(:hover) > .toolbarbutton-icon {
-background: transparent !important;
-border: none !important; box-shadow: none !important; }
-
-#back-button:hover,
-#back-button:hover > .toolbarbutton-icon {
-border: none !important;
-border-radius: 2px !important; }
-
-
-
-
-
-
-
-
+/* Hide the Tracking Protection icon */
 #tracking-protection-icon-container {
-    display: none!important;}
+    display: none !important;}
 
-/* --- Prevent enlargement */
-#urlbar[breakout-extend] {
-    top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
-    left: 0 !important;
-    width: 100% !important;
-}
+/* Hide the identity icon box for extension pages */
+#identity-box .extensionPage #identity-icon-box {
+    display: none !important;}
 
-#urlbar[breakout-extend] #urlbar-input-container {
-    height: var(--urlbar-height) !important;
-    /*padding: 0px !important;*/
-    padding-block: 0px !important;
-    padding-inline: 0px !important;
-}
-.urlbarView-row {
-    padding: 0px 2px 0px 2px;
-}
-/* END Prevent enlargement --- */
+/* Find Bar on top of page */
+.browserContainer > findbar {
+ order:-1 !important; /*113*/
+ border-top: none !important;
+ border-bottom: 1px solid ThreeDShadow !important;}
 
-#menu_unsortedBookmarks,
-#BMB_unsortedBookmarks {
-display: none !important;
-}
+/* No Hover State Icon - Close Button */
+.tab-close-button:hover{ display:none !important;}
+
+
+#identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security.svg) !important; fill: #ff3418 !important;}
 
 
 
+/* Navigation Bar Button Colors */
+#back-button { fill: #ffec2e !important; ;}
+#reload-button { fill: #00c2ff !important;}
+#stop-reload-button { fill: #ff371a !important;}
+#stop-button { fill: #ff371a !important;}
+#downloads-button,
+#downloads-button[indicator="true"]:not([attention="success"]) #downloads-indicator-icon
+{ display: -moz-box !important;
+  visibility: visible !important;
+  fill: #27ff23 !important;}
+#star-button {
+  fill: #ff371a !important;}
+#star-button[starred] {
+  fill: #ff371a !important;}
 
---------------------------------------------------------------------------------------------
+/* Caption Buttons Recolored */
+- .titlebar-button.titlebar-min {
+  color: #00c2ff !important;}
+- .titlebar-button.titlebar-max,
+- .titlebar-button.titlebar-restore {
+    color: #27ff23 !important;}
+.titlebar-button.titlebar-close {
+ color: #ff371a !important;}
+
+
+/* Hide tab border in active tab */
+.tab-background{
+  outline: none !important;
+  box-shadow: none !important;}
+
+.tab-background[selected]{ background: #393939 !important }
 
