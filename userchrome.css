@@ -31,6 +31,7 @@
   max-width: 100vw !important;}
 
 
+
 /* Hide the mute/unmute button */
 .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
     display: none !important;}
@@ -88,12 +89,54 @@
   width: 420px !important;
   margin-left: -2px !important;}
 
-/* Permissions Switch Icon Url Bar */
-#identity-permission-box {
-  display: none !important;}
 
-/* Url Bookmarks Star Button */
-#star-button-box {display: none !important;}
+
+
+
+
+
+
+-.findbar-highlight.findbar-button.tabbable,
+-.findbar-match-diacritics.findbar-button.tabbable,
+-.findbar-highlight.findbar-button.tabbable,
+-.findbar-entire-word.findbar-button.tabbable {
+   background-color: #222222 !important;}
+
+#unified-extensions-button .toolbarbutton-icon {
+fill: #be69ff !important;}
+
+.unified-extensions-item-message-deck {
+  display: none;}
+
+
+
+
+
+
+/* Find Bar Stuff */
+
+/* Find Bar on top of page */
+.browserContainer > findbar {
+ order:-1 !important; /*113*/
+ border-top: none !important;
+ border-bottom: 1px solid !important;}
+
+.browserContainer > findbar {
+background-color: #393939 !important;
+border: 0px !important;}
+
+.findbar-container > hbox > input {
+margin-top: 2px !important;
+height: 32px !important;
+background-color: #292929 !important;
+border-color: #292929 !important;}
+
+.findbar-container {
+height: 34px !important;}
+
+.findbar-closebutton.tabbable.close-icon {
+  order: -1 !important;}
+
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -110,7 +153,6 @@
 
 /* Address Bar Buttons Removed */
 #urlbar-input-container{ margin-inline-start: 14px }
-#unified-extensions-button{ display: none }
 #nav-bar-overflow-button {
 display: none !important;}
 
@@ -161,8 +203,8 @@ list-style-image: url("firefox2.png") !important;}
   margin-right: -2px !important;
   margin-left: 10px !important;}
 
-/*Hamburger Button Separator*/
-#PanelUI-button {border-image-slice: 0 !important;}
+
+
 
 
 /* Bookmarks Sidebar */
@@ -330,6 +372,8 @@ menupopup > menuitem, menupopup > menu {
   order: 2;}
 
 
+
+
 /* Hide the Tracking Protection icon */
 #tracking-protection-icon-container {
     display: none !important;}
@@ -338,11 +382,7 @@ menupopup > menuitem, menupopup > menu {
 #identity-box .extensionPage #identity-icon-box {
     display: none !important;}
 
-/* Find Bar on top of page */
-.browserContainer > findbar {
- order:-1 !important; /*113*/
- border-top: none !important;
- border-bottom: 1px solid ThreeDShadow !important;}
+
 
 /* No Hover State Icon - Close Button */
 .tab-close-button:hover{ display:none !important;}
@@ -355,6 +395,7 @@ menupopup > menuitem, menupopup > menu {
 
 /* Navigation Bar Button Colors */
 #back-button { fill: #ffec2e !important; ;}
+#back-button:inactive { fill: #ffec2e !important;}
 #reload-button { fill: #00c2ff !important;}
 #stop-reload-button { fill: #ff371a !important;}
 #stop-button { fill: #ff371a !important;}
@@ -377,11 +418,28 @@ menupopup > menuitem, menupopup > menu {
 .titlebar-button.titlebar-close {
  color: #ff371a !important;}
 
+/* Permissions Switch Icon Url Bar */
+#identity-permission-box {
+  display: none !important;}
+
+/* Url Bookmarks Star Button */
+#star-button-box {display: none !important;}
+
+/* Reload Animation Icon Color */
+#stop-reload-button .toolbarbutton-animatable-image{
+  fill: #00c2ff !important;}
+#stop-button .toolbarbutton-animatable-image{
+  fill: #00c2ff !important;}
+
+
 
 /* Hide tab border in active tab */
 .tab-background{
   outline: none !important;
   box-shadow: none !important;}
 
-.tab-background[selected]{ background: #393939 !important }
+.tab-background[selected]{background: #393939 !important}
+
+
+
 
