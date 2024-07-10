@@ -1,0 +1,418 @@
+#appcontent
+  > #tabbrowser-tabbox
+  > #tabbrowser-tabpanels
+  > .deck-selected
+  > .browserContainer
+  > .browserStack
+  > browser {
+  border-radius: 5px !important;
+  margin: 10px !important;
+  margin-top: 52px !important;}
+
+.browserStack {
+	background: #292929;}
+
+.browserContainer {
+  background-color: #292929 !important;
+  background-image: var(--lwt-header-image), var(--lwt-additional-images) !important;
+  background-repeat: no-repeat, var(--lwt-background-tiling) !important;
+  background-position: right top, var(--lwt-background-alignment) !important;}
+
+/* Hide Bookmarks Scrollbar */
+:not(select, hbox) > scrollbar,
+.hidevscroll-scrollbar,
+.hidehscroll-scrollbar {
+    appearance: none !important;
+    position: relative;
+    background-color: transparent;
+    background-image: none;
+    z-index: 2147483647;
+    padding: 0px;}
+
+
+/* Remove Tab Bar Bottom Line */
+:root {--chrome-content-separator-color: none !important;}
+
+/*Remove Navigation Toolbox Top Line*/
+#navigator-toolbox { border: none !important; }
+
+
+
+/* URL Tracking Protection Icon Hidden*/
+#tracking-protection-icon-container {
+    display: none !important;}
+/* Permissions Switch Icon Url Bar */
+#identity-permission-box {
+  display: none !important;}
+
+
+/* URL Padlock Icon Recolor */
+#identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security.svg) !important; fill: #ff3418 !important;}
+
+/* URL Bookmarks Star Button */
+#star-button-box {display: none !important;}
+
+/*URL Read View Button*/
+#reader-mode-button, #pageActionButton {
+    display:none !important;}
+
+
+
+/* Address Bar Buttons Removed */
+#nav-bar-overflow-button {
+display: none !important;}
+
+/* Address Bar Buttons Recolored */
+#forward-button {display: none !important;}
+#back-button {fill: #ffec2e !important; ;}
+#back-button:inactive {fill: #ffec2e !important;}
+#sidebar-button {margin-left: 2px !important;}
+#sidebar-button {fill: #00c2ff !important;}
+#reload-button {fill: #00c2ff !important;}
+#stop-reload-button {fill: #ff371a !important;}
+#stop-button {fill: #ff371a !important;}
+#stop-reload-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
+#stop-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
+#unified-extensions-button .toolbarbutton-icon {fill: #be69ff !important;}
+#downloads-button,
+#downloads-button[indicator="true"]:not([attention="success"]) #downloads-indicator-icon
+{ display: -moz-box !important;
+  visibility: visible !important;
+  fill: #27ff23 !important;}
+
+/* Caption Buttons Recolored */
+- .titlebar-button.titlebar-min {
+  color: #00c2ff !important;}
+- .titlebar-button.titlebar-max,
+- .titlebar-button.titlebar-restore {
+    color: #27ff23 !important;}
+.titlebar-button.titlebar-close {
+ color: #ff371a !important;}
+
+/* Sidebar Button - No Highlight */
+#sidebar-button[checked="true"] > .toolbarbutton-icon { background-color: #292929 !important; }
+#sidebar-button:hover > .toolbarbutton-icon { background-color: #292929 !important; }
+
+
+
+/* Extensions Bloat */
+.unified-extensions-item-message-deck,
+#unified-extensions-view > .panel-header,
+#unified-extensions-view > toolbarseparator,
+#unified-extensions-manage-extensions {
+	display: none !important;}
+.unified-extensions-item-message-deck {
+  display: none;}
+
+/* Extension Icons Smaller */
+#unified-extensions-view {
+	--uei-icon-size: 16px;}
+
+
+
+/* Bookmarks Sidebar */
+#bookmarks-view,
+#historyTree,
+#history-panel,
+#sidebar-header {
+background-color: #303030 !important;
+color: #ccc!important;
+border: 0px !important;
+border-right: 0px !important;}
+#bookmarks-view {
+background-color: #303030 !important;
+border: 1px !important;
+border-right: 0px !important;}
+
+/* Bookmark Sidebar Height */
+:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
+treechildren::-moz-tree-row {
+  margin-top: -1px !important;
+  min-height: 26px !important;
+  height: 26px !important;}
+
+#sidebar-header {
+display: none !important;
+padding-top: 4px !important;
+padding-bottom: 0px !important;
+background-color: #303030 !important;}
+
+#bookmarks-view {
+searchbar-textbox: 
+background-color: #303030 !important;}
+
+#sidebar-search-container {
+background-color: #303030 !important;
+color: #4d4d4d !important;
+padding-left: 16px !important;
+padding-right: 16px !important;}
+
+#sidebar-search-container #search-box {
+-moz-appearance: none !important;
+background-color: #232323 !important;
+color: white !important;
+min-height: 32px !important;}
+
+/*Bookmarks Text Color*/
+treechildren::-moz-tree-cell-text(selected),
+treechildren::-moz-tree-cell-text(hover),
+treechildren::-moz-tree-cell-text(current){
+color: #fff !important;
+margin-left: 0px !important;}
+.sidebar-placesTreechildren::-moz-tree-cell-text(container){
+-moz-appearance: none !important;
+color: #ccc !important;}
+
+/* Bookmarks sidebar: change hover row color */
+treechildren::-moz-tree-row{
+background: transparent !important;
+height: 20px !important;
+border: none !important;
+outline: none !important;}
+treechildren::-moz-tree-row(hover){
+background-color: #1c1c1c !important;}
+treechildren::-moz-tree-row(selected){
+border: none !important;}
+treechildren::-moz-tree-separator{
+-moz-appearance: none !important;
+border: none !important;
+border-bottom: solid 1px rgba(255,255,255,0.4) !important;
+background: transparent !important;
+min-height: 0px !important;
+max-height: 0px !important;}
+.sidebar-placesTreechildren::-moz-tree-image(title, container){ 
+list-style-image: url('./dot2.png') !important;}
+
+/* Bookmarks Indention */
+#bookmarks-view-children::-moz-tree-indentation {
+width: 0px !important;}-indentation {
+width: 0px !important;
+padding-left: -5px !important;}
+#bookmarks-view treechildren::-moz-tree-twisty,
+#historyTree treechildren::-moz-tree-twisty {
+list-style-image: none !important;
+margin-left: -8px !important;}
+
+/* Bookmarks Indention Folder Items */
+.sidebar-placesTreechildren::-moz-tree-indentation{ width: 2px !important; }
+
+/* Remove Sidebar border*/
+toolbarbutton#alltabs-button {
+-moz-binding: url("userChrome.xml");}
+#sidebar-splitter{
+border: none !important;}
+
+#PanelUI-menu-button {
+list-style-image: url("firefox.png") !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {
+    padding: 2px !important;}
+:root[uidensity="touch"] #PanelUI-menu-button > .toolbarbutton-badge-stack {
+    padding: 5px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    width: 24px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {
+    margin-right: -16px !important;
+    margin-left: -8px !important;
+    margin-top: 0px !important;}
+
+/* Move hamburger menu to the left */
+#PanelUI-button,
+#customization-panel-container,
+#customization-panelWrapper .panel-arrow { 
+  order: -1;
+  margin-right: 1px !important;
+  margin-left: 5px !important;}
+
+
+
+
+
+#TabsToolbar 
+{ margin-left: 30vw !important;
+  margin-top: -4px !important;}
+
+/* Nav bar*/
+#nav-bar 
+{ background: transparent !important;
+  margin-top: -44px !important;
+  margin-right: 54vw !important;
+  height: 35px !important;
+  padding-top: 0px !important;
+  font-size:12px !important;}
+
+#urlbar-container{
+  max-width: 350px !important;}
+
+
+
+
+
+
+
+
+/* Navigation Bar Position And Recolor */
+
+#navigator-toolbox {
+  position: fixed;
+  z-index: 1;
+  height: 40px;
+  overflow: var(--is-bar-visible);
+  right: 0;
+  top: 0;
+  width: calc(100% - 310px);
+  background-color: #292929 !important;
+  margin-top: 5px !important;}
+#navigator-toolbox:hover {
+  height: 44px;
+  opacity: 1 !important;
+  transition: opacity 175ms ease-in-out;}
+#navigator-toolbox:focus-within {
+  height: 40px;
+  opacity: 1 !important;
+  transition: opacity 175ms ease-in-out;
+  --is-bar-visible: visible;}
+#nav-bar {
+  background-color: #292929 !important;}
+#urlbar-background {
+  background-color: #393939 !important;}
+toolbarbutton[open="true"] {
+  --is-bar-visible: visible !important;}
+
+/*Faviconize Tabs*/
+.tabbrowser-tab:not([selected]) label {display: none !important;}
+.tabbrowser-tab:not([pinned]) {
+max-width: 50px !important;
+min-width: 40px !important;}
+.close-icon {color: #ffffff !important;}
+
+
+
+/* Find Bar Stuff */
+
+/* Find Bar on top of page */	
+.browserContainer > findbar {
+ order:-1 !important;
+ margin-top: 46px !important;
+ border-top: none !important;}
+
+.browserContainer > findbar {
+background-color: #292929 !important;
+border: 0px !important;}
+
+.findbar-container > hbox > input {
+margin-top: 2px !important;
+height: 32px !important;
+background-color: #393939 !important;
+border-color: #393939 !important;}
+
+.findbar-container {
+height: 34px !important;}
+
+.findbar-closebutton.tabbable.close-icon {
+  order: -1 !important;}
+
+
+
+
+/* Keep site icon visible on hover */
+.tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay), 
+     /* for site icon with Compact density */
+:root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    opacity: 1 !important; /* overrides full transparency with full opacity */}
+
+
+
+/* Hide the mute/unmute button */
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
+    display: none !important;}
+
+/* Sound Tab - Hide Label */
+  .tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]){
+    display: none !important;}
+
+/* Inactive Tabs Width */
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+    max-width: 4em !important;
+    min-width: 4em !important;}
+
+/* Active Tab Width - Fixes Close Button Problem */
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+    max-width: 14em !important;
+    min-width: 14em !important;}
+
+/* No Hover State Icon - Close Button */
+.tab-close-button:hover{ display:none !important;}
+
+/* Active Tab Background Recolor */
+.tab-background[selected]{background: #393939 !important}
+
+/* No Inactive Tab Label */
+.tabbrowser-tab :-moz-window-inactive > .tab-label {display: none;} 
+
+/* Removes Space Before Tabs */
+.titlebar-spacer[type="pre-tabs"]{
+  display: none !important;}
+#navigator-toolbox { --tabs-border-color: transparent !important; }
+
+
+
+/* Adds icons to main menu items which were removed in Proton */
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
+#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image,
+#appMenu-mainView > .panel-subview-body > .subviewbutton > .toolbarbutton-icon{
+  fill: currentColor;
+  -moz-context-properties: fill;
+  margin-inline: 0 8px !important;}
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{
+  display: flex;
+  content: "";
+  width: 16px;
+  height: 16px;}
+#appMenu-new-tab-button2{ list-style-image: url("chrome://browser/skin/new-tab.svg") }
+#appMenu-new-window-button2{ list-style-image: url("chrome://browser/skin/window.svg") }
+#appMenu-new-private-window-button2{ list-style-image: url("chrome://browser/skin/privateBrowsing.svg") }
+#appMenu-bookmarks-button{ list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg") }
+#appMenu-history-button{ list-style-image: url("chrome://browser/skin/history.svg") }
+#appMenu-downloads-button{ list-style-image: url("chrome://browser/skin/downloads/downloads.svg") }
+#appMenu-passwords-button{ list-style-image: url("chrome://browser/skin/login.svg") }
+#appMenu-extensions-themes-button{ list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") }
+#appMenu-print-button2{ list-style-image: url("chrome://global/skin/icons/print.svg") }
+#appMenu-save-file-button2{ list-style-image: url("chrome://browser/skin/save.svg") }
+#appMenu-find-button2{ list-style-image: url("chrome://global/skin/icons/search-glass.svg") }
+#appMenu-settings-button{ list-style-image: url("chrome://global/skin/icons/settings.svg") }
+#appMenu-more-button2{ list-style-image: url("chrome://global/skin/icons/developer.svg") }
+#appMenu-report-broken-site-button{ list-style-image: url("chrome://global/skin/icons/warning.svg") }
+#appMenu-help-button2{ list-style-image: url("chrome://global/skin/icons/info.svg") }
+#appMenu-quit-button2{ list-style-image: url("chrome://devtools/skin/images/search-clear.svg") }
+#appMenu-translate-button{ list-style-image: url("chrome://browser/skin/translations.svg") }
+#appMenu-zoom-controls::before{ background-image: url("chrome://browser/skin/fullscreen.svg") }
+/* Use account-button icon for signed in sync item */
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{ background-image: var(--avatar-image-url) }
+/* Add somewhat hacky separator to zoom controls so it looks consistent */
+#appMenu-protonMainView > .panel-subview-body::after,
+#appMenu-mainView > .panel-subview-body::after{
+  content: "";
+  display: flex;
+  border-bottom: 1px solid var(--panel-separator-color);
+  margin: var(--panel-separator-margin);}
+#appMenu-translate-button ~ *{
+  order: 2;}
+
+/*Remove Navigation Context Menu Icons*/
+#context-back image,
+#context-forward image,
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation,
+#context-sep-navigation {
+  display:none !important;}
+
+
+
+
+
+
