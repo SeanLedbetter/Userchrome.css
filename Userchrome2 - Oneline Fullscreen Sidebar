@@ -1,5 +1,4 @@
-#appcontent
-  > #tabbrowser-tabbox
+#tabbrowser-tabbox
   > #tabbrowser-tabpanels
   > .deck-selected
   > .browserContainer
