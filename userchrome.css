@@ -1,20 +1,3 @@
-
-.browserContainer {
-  background-color: #1D1D20 !important;}
-#urlbar-searchmode-switcher {
-  filter: grayscale(100%) !important;}
-.tab-icon-image {
-  height: 20px !important;
-  width: 20px !important;}
-
-/* Bookmark Item Indention */
-.sidebar-placesTreechildren::-moz-tree-indentation {
-  width: 8px !important;}
-/* Hide Arrows In Bookmarks Sidebar */
-.sidebar-placesTree treechildren::-moz-tree-twisty {
-  padding-inline-end: 0 !important;
-  width: 0 !important;}
-
 /* Standard folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
 :-moz-any(
 #bookmarks-view, 
@@ -22,63 +5,48 @@
 #placesList) treechildren::-moz-tree-image(container), 
 #editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon,
 #editBMPanel_folderMenuList menupopup menuitem img.menu-icon {
-  list-style-image: url(folder.png) !important;
-  /* For Fx143 */
-  content: url(folder.png) !important;}
-
+  list-style-image: url("folder.png") !important;}
+/* Standard Folder - Open */
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
+  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
+:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(title, container, open) {
+  list-style-image: url("folderopen.png") !important;} 
+    
 :root{
   --toolbar-field-color: #fff !important;}
 /* Modify it to suit your needs */
-@media screen and (min-width: 1100px){
+@media screen and (min-width: 100px){
   :root[tabsintitlebar][sizemode="normal"]{
     --uc-window-drag-space-width: 2px;}
   :root[uidensity="compact"]{
     --tab-block-margin: 2px !important;}
-  /* Modify these to change relative widths or default height */
+/* Modify these to change relative widths or default height */
   #navigator-toolbox{
-    --uc-navigationbar-width: 40vw;
+    --uc-navigationbar-width: 480px;
     --uc-toolbar-height: 40px;
-    --uc-urlbar-min-width: 50vw; /* minimum width for opened urlbar */}
+    --uc-urlbar-min-width: 30vw; /* minimum width for opened urlbar */}
+    
+#urlbar-container {max-width: 200px !important;}
     
 /* New Tab Icon */
 .tabbrowser-tab[label="New Tab"] .tab-icon-image {
   content: url(dot.png) !important;}
-
-/* prevent urlbar overflow on narrow windows */
-/* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
-  @media screen and (max-width: 1500px){
-    #urlbar-container{
-      min-width: 300px !important;
-      flex-shrink: 1 !important;}}
-
-/* Override for other densities */
-  :root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 34px; }
-  :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
-
-#TabsToolbar{
-    margin-left: var(--uc-navigationbar-width);
-    --tabs-navbar-shadow-size: 0px;}
-#tabbrowser-tabs{
-  --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;}
-  
-/* This isn't useful when tabs start in the middle of the window */
-  .titlebar-spacer[type="pre-tabs"]{ display: none}
-#navigator-toolbox > #nav-bar{
-    margin-right:calc(100vw - var(--uc-navigationbar-width));
-    margin-top: calc(0px - var(--uc-toolbar-height));}
-/* Window drag space  */
-  :root[tabsintitlebar="true"] #nav-bar{ padding-left: var(--uc-window-drag-space-width) !important }
 /* Remove Tab Close Button - For Close Middle-Click */
-  .tab-close-button{ display: none !important;}
+.tab-close-button{ display: none !important;}
+/* Prevent Urlbar Overflow On Narrow Windows */
+@media screen and (max-width: 300px){
+#urlbar-container{
+  min-width: 300px !important;
+  flex-shrink: 1 !important;}}
+#TabsToolbar{
+  margin-left: 480px !important;}
+#navigator-toolbox > #nav-bar{
+  margin-right:calc(100vw - var(--uc-navigationbar-width));
+  margin-top: calc(0px - var(--uc-toolbar-height));}
 
-/* Make opened urlbar overlay the toolbar */
-  #urlbar[open]:focus-within{ min-width: var(--uc-urlbar-min-width,none) !important; }
-
-/* Hide dropdown placeholder */
-  #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
-  
 /* Fix customization view */
-#customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
+#customization-panelWrapper {display: none !important; }
 
 /* Simplifying interface */
 #nav-bar {
@@ -86,26 +54,6 @@
   box-shadow: none !important;}
 #navigator-toolbox {
   border: none !important;}
-.titlebar-spacer {
-  display: none !important;}
-
-/* Hide urlbar elements when not active */
-#urlbar:hover .urlbar-icon,
-#urlbar:active .urlbar-icon, 
-#urlbar[focused] .urlbar-icon {
-  fill: var(--toolbar-color) !important;}
-
-/* Hide Bookmarks Scrollbar */
-:not(select, hbox) > scrollbar,
-.hidevscroll-scrollbar,
-.hidehscroll-scrollbar {
-    appearance: none !important;
-    position: relative;
-    background-color: transparent;
-    background-image: none;
-    z-index: 2147483647;
-    padding: 0px;}
-.hidevscroll-scrollbar {display:none !important;}
 
 /* Main Window Curved Corners */
 main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizemode="fullscreen"]) .browserStack>browser{border-radius: 12px !important; margin: 12px !important}
@@ -116,20 +64,20 @@ main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizem
 #fullscreen-warning { display: none !important; }
 /* Keep site icon visible on hover */
 .tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay), 
-     /* for site icon with Compact density */
+/* for site icon with Compact density */
 :root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
-    opacity: 1 !important; /* overrides full transparency with full opacity */}
+  opacity: 1 !important; /* overrides full transparency with full opacity */}
 
 /* Inactive Tabs Width */
 .tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
-    max-width: 4em !important;
-    min-width: 4em !important;}
+  max-width: 4em !important;
+  min-width: 4em !important;}
 /* Active Tab Width */
 .tabbrowser-tab[selected][fadein]:not([pinned]) {
-    max-width: 14em !important;
-    min-width: 14em !important;}
+  max-width: 14em !important;
+  min-width: 14em !important;}
 .tabbrowser-tab [selected="true"] {
-   background-color: #2C2C2C !important;}
+  background-color: #2C2C2C !important;}
 /* Removes Space Before Tabs */
 .titlebar-spacer[type="pre-tabs"]{
   display: none !important;}
@@ -141,14 +89,26 @@ main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizem
 #urlbar-input-container {
   width: 420px !important;
   margin-left: -2px !important;}
-
 #unified-extensions-button .toolbarbutton-icon {
-fill: #be69ff !important;}
-.unified-extensions-item-message-deck {
-  display: none;}
+  fill: #be69ff !important;}
+.unified-extensions-item-message-deck{
+  display: none}
 
-----------------------------------------------------------------------------------------------
-/* Find Bar Stuff */
+/*Unified Extensions Menu Compact */
+#unified-extensions-view {
+  --uei-icon-size: 24px;}
+#unified-extensions-view {
+ max-width: 300px !important;}
+.unified-extensions-item-menu-button.subviewbutton > .toolbarbutton-icon {
+ padding: 4px !important;}
+#unified-extensions-panel .unified-extensions-header {
+ display: none !important;}
+#unified-extensions-view .panel-header,
+#unified-extensions-view .panel-header + toolbarseparator,
+#unified-extensions-view .panel-subview-body + toolbarseparator {
+ display: none !important;}
+#unified-extensions-manage-extensions {
+ display: none !important;}
 
 /* Find Bar on top of page */
 .browserContainer > findbar {
@@ -167,7 +127,6 @@ fill: #be69ff !important;}
  height: 34px !important;}
 .findbar-closebutton.tabbable.close-icon {
  order: -1 !important;}
-----------------------------------------------------------------------------------------
 
 /*Remove Navigation Context Menu Icons*/
 #context-back image,
@@ -203,125 +162,58 @@ fill: #be69ff !important;}
 max-width: 50px !important;
 min-width: 40px !important;}
 
+/* Add left padding to the address bar text */
+#urlbar {padding-left: 8px !important;}
+
 /* Address Bar Buttons Removed */
-#urlbar-input-container{ margin-inline-start: 14px }
-#nav-bar-overflow-button {
- display: none !important;}
-/* Remove Read View Button*/
-#reader-mode-button, #pageActionButton {
- display:none !important;}
-/* Remove Forward Button */
-#forward-button {
- display:none !important;}
-/* Hide the Tracking Protection icon */
-#tracking-protection-icon-container {
- display: none !important;}
-/* Hide the identity icon box for extension pages */
-#identity-box .extensionPage #identity-icon-box {
- display: none !important;}
-/* Url Bookmarks Star Button */
-#star-button-box {display: none !important;}
-/* Hide The Audio Button*/
-.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
-   display: none !important;}
-/* Hide The Other Audio Button*/
-.tab-secondary-label:is([soundplaying], [muted], [activemedia-blocked], [pictureinpicture]){
-   display: none !important;}
-/* Hide The Other Other Audio Button*/
-.tab-audio-button {
-   display: none !important;}
+#reader-mode-button, #pageActionButton, #nav-bar-overflow-button, 
+#forward-button, #permissions-granted-icon, #permission-icon-container,
+#star-button-box, #alltabs-button, #tracking-protection-icon-container,
+#tracking-protection-icon-box, #identity-box, #identity-box #identity-icon,
+#identity-box .extensionPage #identity-icon-box {display: none !important;}
+.tab-audio-button { display: none !important;} 
 
 /* Move hamburger menu to the left */
 #PanelUI-button,
 #customization-panel-container,
-#customization-panelWrapper .panel-arrow { 
-  order: -1;
+#customization-panelWrapper .panel-arrow {order: -1;
   margin-right: -2px !important;
   margin-left: 10px !important;}
 /* Panel Button Image */
 #PanelUI-menu-button {
 list-style-image: url("firefox3.png") !important;}
-#PanelUI-menu-button > .toolbarbutton-badge-stack {
-    padding: 2px !important;}
-:root[uidensity="touch"] #PanelUI-menu-button > .toolbarbutton-badge-stack {
-    padding: 5px !important;}
-#PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-    width: 24px !important;}
-#PanelUI-menu-button > .toolbarbutton-badge-stack {
-    margin-right: -8px !important;}
-#PanelUI-menu-button > .toolbarbutton-badge-stack {
-    margin-left: -2px !important;}
-#PanelUI-menu-button > .toolbarbutton-badge-stack {
-    margin-top: 0px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {padding: 2px !important;}
+:root[uidensity="touch"] #PanelUI-menu-button > .toolbarbutton-badge-stack {padding: 5px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {width: 24px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {margin-right: -8px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {margin-left: -2px !important;}
+#PanelUI-menu-button > .toolbarbutton-badge-stack {margin-top: 0px !important;}
 
-/* Bookmark Font And size */
-.bookmark-item {
-  font-family: "Inter 28pt", sans-serif !important;
-  font-size: 11px !important;
-  color: rgba(0, 0, 0, 0.5) !important;
-  font-weight: 600 !important;}
-/* Bookmark Sidebar Height */
-:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
-treechildren::-moz-tree-row {
-  margin-top: -1px !important;
-  min-height: 26px !important;
-  height: 26px !important;}
+/* Remove Sidebar Header & Splitter*/
+#sidebar-header {display: none !important;}
+#sidebar-splitter {border: none !important;}
+/* Remove Default Blue/Cyan Glow */
+.sidebar-panel input:focus,
+#search-box:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;}
+/* Remove Sidebar Search Bar Outline */
+#search-box,
+input {
+  border: none !important;}
+/* Hide Arrows In Bookmarks Sidebar */
+.sidebar-placesTree treechildren::-moz-tree-twisty {
+  padding-inline-end: 0 !important;
+  width: 0 !important;}
+/* Bookmark Item Indention */
+.sidebar-placesTreechildren::-moz-tree-indentation {width: 8px !important;}
+/*Remove Dotted Outline Selecting Bookmarks*/
+treechildren::-moz-tree-row(current, focus) {
+ outline-color: transparent !important;}
 
-/* Remove Sidebar Header */
-#sidebar-header {
-display: none !important;}
-#bookmarks-view {
-searchbar-textbox: 
-background-color: #303030 !important;}
-#sidebar-search-container {
-background-color: #303030 !important;
-color: #4d4d4d !important;
-padding-left: 20px !important;
-padding-right: 20px !important;}
-#sidebar-search-container #search-box {
--moz-appearance: none !important;
-background-color: #232323 !important;
-color: white !important;
-min-height: 32px !important;}
-
-/*Bookmarks Text Color*/
-treechildren::-moz-tree-cell-text(selected),
-treechildren::-moz-tree-cell-text(hover),
-treechildren::-moz-tree-cell-text(current){
-color: #fff !important;
-margin-left: 0px !important;}
-.sidebar-placesTreechildren::-moz-tree-cell-text(container){
--moz-appearance: none !important;
-color: #ccc !important;}
-
-/* Bookmarks sidebar: change hover row color */
-treechildren::-moz-tree-row{
-background: transparent !important;
-height: 20px !important;
-border: none !important;
-outline: none !important;}
-treechildren::-moz-tree-row(hover){
-background-color: #1c1c1c !important;}
-treechildren::-moz-tree-row(selected){
-border: none !important;}
-treechildren::-moz-tree-separator{
--moz-appearance: none !important;
-border: none !important;
-border-bottom: solid 1px rgba(255,255,255,0.4) !important;
-background: transparent !important;
-min-height: 0px !important;
-max-height: 0px !important;}
-
-/* Remove Sidebar border*/
-#sidebar-splitter{
-border: none !important;}
-
-#appMenu-fxa-separator {
-  border-image: unset !important;}
 :root {
-    --arrowpanel-menuitem-padding: 5px !important;}
-menupopup > menuitem, menupopup > menu {
-    padding-block: 0.3em !important;}
+--arrowpanel-menuitem-padding: 5px !important;}
 
 /* Adds icons to main menu items which were removed in Proton */
 #appMenu-zoom-controls::before,
@@ -355,7 +247,6 @@ menupopup > menuitem, menupopup > menu {
 #appMenu-protonMainView > .panel-subview-body::after,
 #appMenu-mainView > .panel-subview-body::after{content: ""; display: flex; border-bottom: 1px solid var(--panel-separator-color); margin: var(--panel-separator-margin);}
 
-
 /* Address Bar Buttons Recolored */
 #forward-button {display: none !important;}
 #back-button {fill: #ff666d !important;}
@@ -377,8 +268,6 @@ menupopup > menuitem, menupopup > menu {
  fill: #8fe3af !important;}
 #downloads-button[attention="success"] #downloads-indicator-icon {fill: #76d0eb !important;}
 #unified-extensions-button .toolbarbutton-icon {fill: #76d0eb !important;}
-
-/* Bookmarks Icon */
 #sidebar-button {
  list-style-image: url(Star.png) !important;}
 
@@ -391,5 +280,47 @@ menupopup > menuitem, menupopup > menu {
 .titlebar-button.titlebar-close {
  color: #ff666d !important;}
  
+/* styles for urlbar */
+#urlbar[breakout-extend]{
+#urlbar-input {font-size: 23.5px !important;}
+#urlbar-input-container, .urlbar-input-container {height: 50px !important;}
+#urlbar-background {border-radius: var(--bigger-rounding) !important;}
+#urlbar-input-container, .urlbar-input-container {
+ & > :is(box, image){
+ height: 28px !important;
+ margin-block: calc((50px - 28px) / 4) !important;}}
+position: fixed !important;
+z-index: 999999 !important;
+bottom: auto !important;
+top: 20vh !important;
+left: 18vw !important;
+right: 18vw !important;
+width: 64vw !important;
 
+/* cool translucent background */
+&:before{
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  border-radius: var(--rounding);
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: #242424, transparent);}}}
+      
+/* Dark filter when urlbar is [open] */
+#urlbar-container::before {
+  content: '';
+  box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
+  transition: box-shadow 250ms ease-out;
+  pointer-events: none;
+  z-index: 6 !important;}
+#urlbar-container:has(#urlbar[open])::before {
+  --my-box-shadow-color: rgba(0, 0, 0, 0.50);}
+  
+/* Remove Gradient Line App Menu */
+.PanelUI-subView {
+  & toolbarseparator.proton-zap::before {
+    border-image: none !important;}
 
