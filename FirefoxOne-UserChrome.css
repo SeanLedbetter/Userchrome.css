@@ -1,0 +1,157 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-one */
+
+/* ############# Required files ############## */
+
+@import url('components/one_root.css');
+@import url('components/one_root-personal.css');
+@import url('components/one_containers-groups.css');
+@import url('components/one_main-window.css');
+@import url('components/one_tabs-bar.css');
+@import url('components/one_urlbar-searchbar.css');
+@import url('components/one_windows-controls.css');
+@import url('components/one_customize-styles.css');
+@import url('components/one_sound.css');
+@import url('components/one_arrowpanel.css');
+@import url('components/one_contextual-menu.css');
+@import url('components/one_notifications.css');
+@import url('components/one_close-button.css');
+@import url('components/one_button-styles.css');
+@import url('components/one_library.css');
+@import url('components/one_hamburger-menu.css');
+@import url('components/one_icons.css');
+
+
+/* ############## Extra Files ###############  */
+
+@import url('components/one_tree-tabs.css');
+@import url('components/one_tree-tabs-expandOnHover.css');
+@import url('components/one_optional-features.css');
+
+/* ############# Your Personal File ##############  */
+
+@import url('components/one_tricks.css');
+
+
+
+/*Faviconize Tabs*/
+.tabbrowser-tab:not([selected]) label {display: none !important;}
+.tabbrowser-tab:not([pinned]) {
+max-width: 50px !important;
+min-width: 40px !important;}
+
+
+/* Address Bar Buttons Removed */
+#reader-mode-button, #pageActionButton, #nav-bar-overflow-button, 
+#forward-button, #permissions-granted-icon, #permission-icon-container,
+#star-button-box, #alltabs-button, #tracking-protection-icon-container,
+#tracking-protection-icon-box, #identity-box, #identity-box #identity-icon,
+#identity-box .extensionPage #identity-icon-box {display: none !important;}
+.tab-audio-button { display: none !important;} 
+
+/* Inactive Tabs Width */
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+  max-width: 4em !important;
+  min-width: 4em !important;}
+/* Active Tab Width */
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+  max-width: 14em !important;
+  min-width: 14em !important;}
+.tabbrowser-tab [selected="true"] {
+  background-color: #2C2C2C !important;}
+/* Removes Space Before Tabs */
+.titlebar-spacer[type="pre-tabs"]{
+  display: none !important;}
+  
+  :root{
+  --toolbar-field-color: #fff !important;}
+/* Modify it to suit your needs */
+@media screen and (min-width: 100px){
+  :root[tabsintitlebar][sizemode="normal"]{
+    --uc-window-drag-space-width: 2px;}
+  :root[uidensity="compact"]{
+    --tab-block-margin: 2px !important;}
+/* Modify these to change relative widths or default height */
+  #navigator-toolbox{
+    --uc-navigationbar-width: 480px;
+    --uc-toolbar-height: 40px;
+    --uc-urlbar-min-width: 30vw; /* minimum width for opened urlbar */}
+    
+#urlbar-container {max-width: 200px !important;}
+#nav-bar {max-width: 418px !important;}
+
+/* New Tab Icon */
+.tabbrowser-tab[label="New Tab"] .tab-icon-image {
+  content: url(dot.png) !important;}
+/* Remove Tab Close Button - For Close Middle-Click */
+.tab-close-button{ display: none !important;}
+/* Prevent Urlbar Overflow On Narrow Windows */
+@media screen and (max-width: 300px){
+#urlbar-container{
+  min-width: 300px !important;
+  flex-shrink: 1 !important;}}
+#TabsToolbar{
+  padding-left: 400px !important;}
+#navigator-toolbox > #nav-bar{
+  margin-right:calc(100vw - var(--uc-navigationbar-width));
+  margin-top: calc(0px - var(--uc-toolbar-height));}
+/* Remove Sidebar Header & Splitter*/
+#sidebar-header {display: none !important;}
+/* Hide Arrows In Bookmarks Sidebar */
+.sidebar-placesTree treechildren::-moz-tree-twisty {
+  padding-inline-end: 0 !important;
+  width: 0 !important;}
+  /* Bookmark Item Indention */
+.sidebar-placesTreechildren::-moz-tree-indentation {width: 8px !important;}
+
+/* Address Bar Buttons Recolored */
+#forward-button {display: none !important;}
+#back-button {fill: #ff666d !important;}
+#back-button:inactive {fill: #ff666d !important;}
+#sidebar-button {margin-left: 2px !important;}
+#sidebar-button {fill: #cb8bd0 !important;}
+#reload-button {fill: #f0d673 !important;}
+#stop-reload-button {fill: #ff666d !important;}
+#stop-button {fill: #ff666d !important;}
+#home-button {fill: #8fe3af !important;}
+#stop-reload-button .toolbarbutton-animatable-image {fill: #f0d673 !important;}
+#stop-button .toolbarbutton-animatable-image {fill: #ff666d !important;}
+#stop-reload-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
+#stop-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
+#downloads-button,
+#downloads-button[indicator="true"]:not([attention="success"]) #downloads-indicator-icon{
+ display: -moz-box !important;
+ visibility: visible !important;
+ fill: #8fe3af !important;}
+#downloads-button[attention="success"] #downloads-indicator-icon {fill: #76d0eb !important;}
+#unified-extensions-button .toolbarbutton-icon {fill: #76d0eb !important;}
+
+/* styles for urlbar */
+#urlbar[breakout-extend]{
+#urlbar-input {font-size: 23.5px !important;}
+#urlbar-input-container, .urlbar-input-container {height: 50px !important;}
+#urlbar-background {border-radius: var(--bigger-rounding) !important;}
+#urlbar-input-container, .urlbar-input-container {
+ & > :is(box, image){
+ height: 28px !important;
+ margin-block: calc((50px - 28px) / 4) !important;}}
+position: fixed !important;
+z-index: 999999 !important;
+bottom: auto !important;
+top: 20vh !important;
+left: 18vw !important;
+right: 18vw !important;
+width: 64vw !important;
+
+/* cool translucent background */
+&:before{
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  border-radius: var(--rounding);
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: #242424, transparent);}}}
+
