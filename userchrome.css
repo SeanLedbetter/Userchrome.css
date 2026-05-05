@@ -1,3 +1,50 @@
+/* Tab bar */
+#navigator-toolbox {
+    border: 0px !important;}
+#TabsToolbar {
+    min-height: 48px !important;
+    margin-left: 410px !important;
+    padding-left: 30px !important;
+    margin-bottom: 22px !important;}
+/* Nav bar*/
+#nav-bar {
+    width: 424px !important;
+    min-height: 38px !important;
+    background: transparent !important;
+    margin-left: 6px !important;
+    margin-right: 80vw !important;
+    margin-top: -64px !important;}
+
+#urlbar-container {max-width: 150px !important;}
+/* Prevent Urlbar Overflow On Narrow Windows */
+@media screen and (max-width: 300px){
+#urlbar-container{
+  flex-shrink: 1 !important;}}
+#navigator-toolbox > #nav-bar{
+  margin-right:calc(100vw - var(--uc-navigationbar-width));
+  margin-top: calc(0px - var(--uc-toolbar-height));}
+
+/* Simplifying interface */
+#nav-bar {
+  background: none !important;
+  box-shadow: none !important;}
+/* Hide Tab Border In Active Tab */
+.tab-background{
+  outline: none !important;
+  box-shadow: none !important;}
+.tab-background[selected]{
+  background: #343642 !important}
+/* Top Bar Color */
+#toolbar-menubar, #TabsToolbar, #navigator-toolbox {
+  background-color: #3d3f4b !important;}
+#urlbar-background {
+  background-color: #343642 !important;}
+/* Nav Bar*/
+#nav-bar {
+  border-radius: 4px !important;
+  background-color: #363844 !important;
+  color: #363844 !important;}
+
 /* Standard folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
 :-moz-any(
 #bookmarks-view, 
@@ -11,49 +58,16 @@
   .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
 :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
   treechildren::-moz-tree-image(title, container, open) {
-  list-style-image: url("folderopen.png") !important;} 
-    
-:root{
-  --toolbar-field-color: #fff !important;}
-/* Modify it to suit your needs */
-@media screen and (min-width: 100px){
-  :root[tabsintitlebar][sizemode="normal"]{
-    --uc-window-drag-space-width: 2px;}
-  :root[uidensity="compact"]{
-    --tab-block-margin: 2px !important;}
-/* Modify these to change relative widths or default height */
-  #navigator-toolbox{
-    --uc-navigationbar-width: 480px;
-    --uc-toolbar-height: 40px;
-    --uc-urlbar-min-width: 30vw; /* minimum width for opened urlbar */}
-    
-#urlbar-container {max-width: 200px !important;}
-    
+  list-style-image: url("folderopen.png") !important;}
+
 /* New Tab Icon */
 .tabbrowser-tab[label="New Tab"] .tab-icon-image {
-  content: url(dot.png) !important;}
+  content: url("dot.png") !important;}
 /* Remove Tab Close Button - For Close Middle-Click */
 .tab-close-button{ display: none !important;}
-/* Prevent Urlbar Overflow On Narrow Windows */
-@media screen and (max-width: 300px){
-#urlbar-container{
-  min-width: 300px !important;
-  flex-shrink: 1 !important;}}
-#TabsToolbar{
-  margin-left: 480px !important;}
-#navigator-toolbox > #nav-bar{
-  margin-right:calc(100vw - var(--uc-navigationbar-width));
-  margin-top: calc(0px - var(--uc-toolbar-height));}
 
 /* Fix customization view */
 #customization-panelWrapper {display: none !important; }
-
-/* Simplifying interface */
-#nav-bar {
-  background: none !important;
-  box-shadow: none !important;}
-#navigator-toolbox {
-  border: none !important;}
 
 /* Main Window Curved Corners */
 main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizemode="fullscreen"]) .browserStack>browser{border-radius: 12px !important; margin: 12px !important}
@@ -74,8 +88,8 @@ main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizem
   min-width: 4em !important;}
 /* Active Tab Width */
 .tabbrowser-tab[selected][fadein]:not([pinned]) {
-  max-width: 14em !important;
-  min-width: 14em !important;}
+  max-width: 10em !important;
+  min-width: 10em !important;}
 .tabbrowser-tab [selected="true"] {
   background-color: #2C2C2C !important;}
 /* Removes Space Before Tabs */
@@ -138,23 +152,18 @@ main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizem
 #context-sep-navigation {
   display:none !important;}
 
-/* Hide tab border in active tab */
-.tab-background{
-  outline: none !important;
-  box-shadow: none !important;}
-.tab-background[selected]{background: #393939 !important}
-
-/* Top Bar Color */
-#toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox{
-  background-color: #262626 !important;}
-#titlebar-color{
-  background-color: #2C2C2C !important;}
-#urlbar-background {
-  background-color: #393939 !important;}
-/* Nav Bar*/
-#nav-bar {
-  background-color: #262626 !important;
-  color: #262626 !important;}
+/*Caption Button Island*/  
+.titlebar-min > .toolbarbutton-icon{
+  border-radius: .5rem 0 0 .5rem !important;
+  margin-right: -13px !important;}
+.titlebar-restore > .toolbarbutton-icon{
+  border-radius: 0px !important;}   
+.titlebar-max > .toolbarbutton-icon{
+  border-radius: 0px !important;}
+.titlebar-close > .toolbarbutton-icon{
+  border-radius: 0 .5rem .5rem 0 !important;
+  margin-left: -13px !important;
+  margin-right: 10px !important;}
 
 /*Faviconize Tabs*/
 .tabbrowser-tab:not([selected]) label {display: none !important;}
@@ -162,16 +171,13 @@ main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizem
 max-width: 50px !important;
 min-width: 40px !important;}
 
-/* Add left padding to the address bar text */
-#urlbar {padding-left: 8px !important;}
-
 /* Address Bar Buttons Removed */
 #reader-mode-button, #pageActionButton, #nav-bar-overflow-button, 
 #forward-button, #permissions-granted-icon, #permission-icon-container,
 #star-button-box, #alltabs-button, #tracking-protection-icon-container,
 #tracking-protection-icon-box, #identity-box, #identity-box #identity-icon,
-#identity-box .extensionPage #identity-icon-box {display: none !important;}
-.tab-audio-button { display: none !important;} 
+#identity-box .extensionPage, #identity-icon-box {display: none !important;}
+.tab-audio-button { display: none !important;}
 
 /* Move hamburger menu to the left */
 #PanelUI-button,
@@ -181,7 +187,7 @@ min-width: 40px !important;}
   margin-left: 10px !important;}
 /* Panel Button Image */
 #PanelUI-menu-button {
-list-style-image: url("firefox3.png") !important;}
+list-style-image: url("firefox.png") !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {padding: 2px !important;}
 :root[uidensity="touch"] #PanelUI-menu-button > .toolbarbutton-badge-stack {padding: 5px !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {width: 24px !important;}
@@ -191,7 +197,7 @@ list-style-image: url("firefox3.png") !important;}
 
 /* Remove Sidebar Header & Splitter*/
 #sidebar-header {display: none !important;}
-#sidebar-splitter {border: none !important;}
+#sidebar-splitter {display: none !important;}
 /* Remove Default Blue/Cyan Glow */
 .sidebar-panel input:focus,
 #search-box:focus,
@@ -253,13 +259,13 @@ treechildren::-moz-tree-row(current, focus) {
 #back-button:inactive {fill: #ff666d !important;}
 #sidebar-button {margin-left: 2px !important;}
 #sidebar-button {fill: #cb8bd0 !important;}
-#reload-button {fill: #f0d673 !important;}
-#stop-reload-button {fill: #ff666d !important;}
+#reload-button {fill: #eba563 !important;}
+#stop-reload-button {fill: #eba563 !important;}
 #stop-button {fill: #ff666d !important;}
 #home-button {fill: #8fe3af !important;}
-#stop-reload-button .toolbarbutton-animatable-image {fill: #f0d673 !important;}
+#stop-reload-button .toolbarbutton-animatable-image {fill: #eba563 !important;}
 #stop-button .toolbarbutton-animatable-image {fill: #ff666d !important;}
-#stop-reload-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
+#stop-reload-button .toolbarbutton-animatable-image {fill: #eba563 !important;}
 #stop-button .toolbarbutton-animatable-image {fill: #00c2ff !important;}
 #downloads-button,
 #downloads-button[indicator="true"]:not([attention="success"]) #downloads-indicator-icon{
@@ -268,23 +274,18 @@ treechildren::-moz-tree-row(current, focus) {
  fill: #8fe3af !important;}
 #downloads-button[attention="success"] #downloads-indicator-icon {fill: #76d0eb !important;}
 #unified-extensions-button .toolbarbutton-icon {fill: #76d0eb !important;}
-#sidebar-button {
- list-style-image: url(Star.png) !important;}
+#sidebar-button {list-style-image: url("Star.png") !important;}
+#home-button {list-style-image: url("home.png") !important;}
 
-/* Caption Buttons Recolored */
-- .titlebar-button.titlebar-min {
-  color: #00c2ff !important;}
-- .titlebar-button.titlebar-max,
-- .titlebar-button.titlebar-restore {
-    color: #27ff23 !important;}
+/* Close Button Recolored */
 .titlebar-button.titlebar-close {
  color: #ff666d !important;}
  
-/* styles for urlbar */
+/* Styles For Urlbar */
 #urlbar[breakout-extend]{
 #urlbar-input {font-size: 23.5px !important;}
 #urlbar-input-container, .urlbar-input-container {height: 50px !important;}
-#urlbar-background {border-radius: var(--bigger-rounding) !important;}
+#urlbar-background {border-radius: 4px !important;}
 #urlbar-input-container, .urlbar-input-container {
  & > :is(box, image){
  height: 28px !important;
@@ -295,21 +296,9 @@ bottom: auto !important;
 top: 20vh !important;
 left: 18vw !important;
 right: 18vw !important;
-width: 64vw !important;
+width: 64vw !important;}
 
-/* cool translucent background */
-&:before{
-  content: "";
-  position: fixed;
-  pointer-events: none;
-  border-radius: var(--rounding);
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
-  background-color: #242424, transparent);}}}
-      
-/* Dark filter when urlbar is [open] */
+/* Dark Filter When Urlbar Is [Open] */
 #urlbar-container::before {
   content: '';
   box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
@@ -317,8 +306,9 @@ width: 64vw !important;
   pointer-events: none;
   z-index: 6 !important;}
 #urlbar-container:has(#urlbar[open])::before {
+ -moz-appearance: none !important;
   --my-box-shadow-color: rgba(0, 0, 0, 0.50);}
-  
+
 /* Remove Gradient Line App Menu */
 .PanelUI-subView {
   & toolbarseparator.proton-zap::before {
