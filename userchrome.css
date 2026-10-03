@@ -1,21 +1,177 @@
+/*Nova Stuff*/
+
+:root {
+  --chrome-window-gap: 0 !important;
+  --chrome-block-radius: 0 !important;
+  --chrome-content-separator-color: transparent !important;}
+.chrome-block { border: 0px !important;}
+.browserContainer { border: 0px !important;}
+.tab-background { border-radius: 4px !important;}
+.urlbar-input-container { border-radius: 4px !important;}
+#browser { padding: 0 !important; border-radius: 4px !important;}
+#navigator-toolbox { margin: 0 !important; border-radius: 4px !important;}
+#tabbrowser-tabbox { border-radius: 4px !important;}
+#nav-bar { border-top: none !important;}
+
+:root {
+  --toolbarbutton-border-radius: 4px !important;
+  --tab-border-radius: 4px !important;
+  --panel-border-radius: 4px !important;
+  --panel-menuitem-border-radius: 4px !important;
+  --border-radius-xsmall: 4px !important;
+  --border-radius-small: 4px !important;
+  --border-radius-medium: 4px !important;
+  --border-radius-large: 4px !important;
+  --border-radius-xlarge: 4px !important;
+  --border-radius-xxlarge: 4px !important;
+  --button-border-radius: 4px !important;
+  --card-border-radius: 4px !important;
+  --checkbox-border-radius: 4px !important;
+  --input-text-border-radius: 4px !important;
+  --menuitem-border-radius: 4px !important;
+  --urlbar-border-radius: 4px !important;
+  --urlbar-inner-border-radius: 4px !important;
+  --urlbarview-border-radius: 4px !important;
+  --urlbar-selection-border-radius: 4px !important;
+  --toolbox-background-gradient: none !important;
+  --chrome-content-separator-color: transparent !important;
+  --color-accent-primary: light-dark(oklch(55% 0.24 260), oklch(76% 0.14 205)) !important;
+  --color-accent-primary-hover: light-dark(oklch(48% 0.2 260), oklch(83% 0.11 205)) !important;
+  --color-accent-primary-active: light-dark(oklch(41% 0.17 260), oklch(90% 0.07 205)) !important;
+  --focus-outline-color: light-dark(oklch(55% 0.24 260), oklch(76% 0.14 205)) !important;
+  --text-color: light-dark(#15141a, #fbfbfe) !important;
+  --background-color-box: light-dark(#ffffff, #23222b) !important;
+  --background-color-canvas: light-dark(#ffffff, #1c1b22) !important;
+  --button-background-color: color-mix(in srgb, currentColor 7%, transparent) !important;
+  --button-background-color-hover: color-mix(in srgb, currentColor 14%, transparent) !important;
+  --button-background-color-active: color-mix(in srgb, currentColor 21%, transparent) !important;
+  --button-text-color: light-dark(#15141a, #fbfbfe) !important;
+  --button-text-color-primary: light-dark(#ffffff, #15141a) !important;
+  --toolbox-background-color: light-dark(rgb(234, 234, 237), #1c1b22) !important;
+  --toolbox-background-color-inactive: light-dark(rgb(235, 235, 239), rgb(31, 30, 37)) !important;
+  --toolbox-text-color: light-dark(#15141a, #fbfbfe) !important;
+  --toolbox-text-color-inactive: light-dark(#15141a, #fbfbfe) !important;
+  --toolbar-background-color: light-dark(#f9f9fb, rgb(43, 42, 51)) !important;
+  --toolbar-text-color: light-dark(#15141a, #fbfbfe) !important;
+  --toolbar-field-background-color: light-dark(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3)) !important;
+  --toolbar-field-background-color-focus: light-dark(#ffffff, rgb(66, 65, 77)) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-border-color-focus: color-mix(in srgb, var(--focus-outline-color) 50%, transparent) !important;
+  --toolbar-field-text-color: light-dark(#15141a, #fbfbfe) !important;
+  --toolbar-field-text-color-focus: light-dark(#000000, #fbfbfe) !important;
+  --panel-background-color: light-dark(#ffffff, rgb(66, 65, 77)) !important;
+  --toolbarbutton-background-color-hover: color-mix(in srgb, currentColor 17%, transparent) !important;
+  --toolbarbutton-background-color-active: color-mix(in srgb, currentColor 30%, transparent) !important;
+  --toolbarbutton-icon-fill: light-dark(#5b5b66, #fbfbfe) !important;
+  --toolbarbutton-icon-fill-attention: light-dark(oklch(55% 0.24 260), oklch(76% 0.14 205)) !important;
+  --tab-background-color-hover: color-mix(in srgb, currentColor 11%, transparent) !important;
+  --tab-background-color-selected: light-dark(#ffffff, rgba(106, 106, 120, 0.7)) !important;
+  --tab-selected-textcolor: light-dark(rgb(21, 20, 26), #ffffff) !important;
+  --tab-border-color-selected-leading: transparent !important;
+  --tab-border-color-selected-trailing: transparent !important;}
+
+/*End Of Nova Stuff*/
+
+/* Main Window Curved Corners */
+main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizemode="fullscreen"]) .browserStack>browser{border-radius: 12px !important; margin: 12px !important}
+
+/*Sidebar Optimization*/
+main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizemode="fullscreen"]) .browserStack {background-color: #383838 !important;}
+#sidebar { margin-top: 6px !important;}
+#sidebar { margin-right: 14px !important;}
+#sidebar { margin-left: 6px !important;}
+#sidebar { outline: 0px  !important;}
+#sidebar { background-color: #313131 !important; }
+#sidebar-box { background-color: #383838 !important;}
+
 /* Tab bar */
 #navigator-toolbox {
     border: 0px !important;}
 #TabsToolbar {
     min-height: 48px !important;
-    margin-left: 410px !important;
+    margin-left: 600px !important;
     padding-left: 30px !important;
     margin-bottom: 22px !important;}
 /* Nav bar*/
 #nav-bar {
-    width: 424px !important;
+    width: 620px !important;
     min-height: 38px !important;
     background: transparent !important;
     margin-left: 6px !important;
     margin-right: 80vw !important;
     margin-top: -64px !important;}
 
-#urlbar-container {max-width: 150px !important;}
+#urlbar-container {max-width: 350px !important;}
+
+#urlbar-input::selection,
+.urlbar-input::selection,
+.searchbar-textbox::selection,
+#urlbar-input:not(:focus)::selection,
+.urlbar-input:not(:focus)::selection,
+.searchbar-textbox:not(:focus-within)::selection {
+  background-color: #2E7183 !important;
+  color: #ffffff !important;}
+#navigator-toolbox {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;}
+#browser {
+  padding: 0 !important;
+  gap: 0 !important;
+  border-radius: 0 !important;}
+.chrome-block,
+#tabbrowser-tabpanels> :not(.split-view-panel) .browserContainer {
+  border: none !important;  border-radius: 0 !important;}
+#tabbrowser-tabbox { border-radius: 0 !important;}
+#nav-bar { border-top: none !important;}
+
+/* Select Colors */
+:root,
+panel,
+dialog,
+window {
+ --lwt-toolbarbutton-icon-fill-attention: #3584E4 !important;
+ --button-primary-bgcolor: #3584E4 !important;
+ --button-primary-hover-bgcolor: #3584E4 !important;
+ --button-primary-active-bgcolor: #3584E4 !important;
+ --in-content-primary-button-background: #3584E4 !important;
+ --in-content-primary-button-background-hover: #3584E4 !important;
+ --in-content-primary-button-background-active: #3584E4 !important;
+ --input-border-color: #3584E4 !important;
+ --uc-checkbox-checked-bgcolor: #3584E4 !important;
+ --checkbox-checked-bgcolor: #3584E4 !important;
+ --focus-outline-color: #3584E4 !important;
+ --in-content-link-color: #3584E4 !important;}
+::selection {
+    color: White !important;
+    background: #3584E4 !important;}
+menuitem:hover,
+menupopup > menu:hover,
+menupopup > menucaption:hover  {
+  background-color: #3584E4 !important;}
+#appMenu-popup toolbarbutton.subviewbutton:not([disabled],
+[open],
+:active):is(:hover) {
+  background-color: #3584E4 !important;}
+/* This changes the color when hovering over items of some right click context menus */
+menubar > menu[_moz-menuactive="true"],
+menupopup > menu[_moz-menuactive="true"],
+popup > menu[_moz-menuactive="true"],
+menuitem[_moz-menuactive="true"]
+{background-color: #3584E4 !important; color: white !important}
+/* Library Window - Selected and Focus */
+#placesView treechildren::-moz-tree-row(selected),
+#placesView treechildren::-moz-tree-row(selected, focus) {
+background-color: #3584E4 !important;}
+/* Library Window - Hovered row */
+#placesView treechildren::-moz-tree-row(hover) {
+background-color: #3584E4 !important;}
+/* Library Window - Hovered text */
+#placesView treechildren::-moz-tree-cell-text(hover) {
+color: white !important;}
+.sidebar-placesTreechildren::-moz-tree-cell(selected, focus){
+  background-color: #3584E4 !important;}
+
 /* Prevent Urlbar Overflow On Narrow Windows */
 @media screen and (max-width: 300px){
 #urlbar-container{
@@ -36,7 +192,7 @@
   background: #535353 !important}
 /*Urlbar Selected No Border*/  
 #urlbar[focused] .urlbar-background{
-  outline:None !important} 
+  outline: none !important;} 
 /* Top Bar Color */
 #toolbar-menubar, #TabsToolbar, #navigator-toolbox {
   background-color: #3f3f3f !important;}
@@ -50,18 +206,12 @@
   background-color: #383838 !important;
   color: #363844 !important;}
   
-  
 #navigator-toolbox { --tabs-border-color: transparent !important; }
 /* More Bottom Margin For Nav Bar */
 #nav-bar {margin-bottom: 5px !important;}
 /* Input Text Run-On */
 #urlbar-input-container {
-  width: 420px !important;
   margin-left: -2px !important;}
-  
-  
-  
-  
 
 /* Standard folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
 :-moz-any(
@@ -86,9 +236,6 @@
 
 /* Fix customization view */
 #customization-panelWrapper {display: none !important; }
-
-/* Main Window Curved Corners */
-main-window:has(#navigator-toolbox[style=""]) .browserStack>browser, :not([sizemode="fullscreen"]) .browserStack>browser{border-radius: 12px !important; margin: 12px !important}
 
 /*Full-Screen Slide Animation*/
 #navigator-toolbox { transition: all .5s !important; }
@@ -223,7 +370,7 @@ list-style-image: url("Firefox.png") !important;}
 #PanelUI-menu-button > .toolbarbutton-badge-stack {margin-top: 0px !important;}
 
 /* Remove Sidebar Header & Splitter*/
-#sidebar-header {display: none !important;}
+#sidebar-panel-header { display: none !important;}
 #sidebar-splitter {display: none !important;}
 /* Remove Default Blue/Cyan Glow */
 .sidebar-panel input:focus,
@@ -234,7 +381,9 @@ input:focus {
 /* Remove Sidebar Search Bar Outline */
 #search-box,
 input {
-  border: none !important;}
+  border: none !important;
+  border-radius: 4px !important;
+  background-color: #383838 !important;}
 /* Hide Arrows In Bookmarks Sidebar */
 .sidebar-placesTree treechildren::-moz-tree-twisty {
   padding-inline-end: 0 !important;
@@ -305,36 +454,11 @@ treechildren::-moz-tree-row(current, focus) {
 #home-button {list-style-image: url("Home.png") !important;}
 #downloads-button {padding-top: 3px !important;}
  
-/* Styles For Urlbar */
-#urlbar[breakout-extend]{
-#urlbar-input {font-size: 23.5px !important;}
-#urlbar-input-container, .urlbar-input-container {height: 50px !important;}
-#urlbar-background {border-radius: 4px !important;}
-#urlbar-input-container, .urlbar-input-container {
- & > :is(box, image){
- height: 28px !important;
- margin-block: calc((50px - 28px) / 4) !important;}}
-position: fixed !important;
-z-index: 999999 !important;
-bottom: auto !important;
-top: 20vh !important;
-left: 18vw !important;
-right: 18vw !important;
-width: 64vw !important;}
-
-/* Dark Filter When Urlbar Is [Open] */
-#urlbar-container::before {
-  content: '';
-  box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
-  transition: box-shadow 250ms ease-out;
-  pointer-events: none;
-  z-index: 6 !important;}
-#urlbar-container:has(#urlbar[open])::before {
- -moz-appearance: none !important;
-  --my-box-shadow-color: rgba(0, 0, 0, 0.50);}
-
 /* Remove Gradient Line App Menu */
 .PanelUI-subView {
   & toolbarseparator.proton-zap::before {
     border-image: none !important;}
+
+
+
 
